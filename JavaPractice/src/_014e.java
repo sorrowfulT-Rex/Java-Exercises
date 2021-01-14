@@ -6,11 +6,10 @@
     and finally report how many numbers were generated in total.
 */
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.*;
 
 public class _014e {
+
     private final int max;
     private final List<Integer> randomList = new ArrayList<>();
     private final Set<Integer> appeared = new HashSet<>();
@@ -49,7 +48,7 @@ public class _014e {
         return appeared.equals(allNums);
     }
 
-    public static void main(String @NotNull [] args) {
+    public static void main(String[] args) {
         final int input = Integer.parseInt(args[0]);
         final _014e ins = new _014e(input);
 
@@ -66,4 +65,5 @@ public class _014e {
                 (input - 1) +
                 " to have produced all such numbers at least once.");
     }
+
 }
