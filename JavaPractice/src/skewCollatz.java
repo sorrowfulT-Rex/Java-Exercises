@@ -1,13 +1,14 @@
+import java.math.BigInteger;
 import java.util.*;
 
 public class skewCollatz {
-    private Set<Integer> set = new HashSet<>();
+    private Set<BigInteger> set = new HashSet<>();
 
-    private int next(int n) {
-        if (n % 2 == 0) {
-            return n / 2;
+    private BigInteger next(BigInteger n) {
+        if (n.mod(BigInteger.TWO).equals(BigInteger.ZERO)) {
+            return n.divide(BigInteger.TWO);
         } else {
-            return 3 * n - 1;
+            return n.multiply(BigInteger.valueOf(3)).add(BigInteger.valueOf(-1));
         }
     }
 
@@ -16,7 +17,7 @@ public class skewCollatz {
         return set.toString();
     }
 
-    public void genSeq(int n) {
+    public void genSeq(BigInteger n) {
         while (!set.contains(n)) {
             set.add(n);
             n = next(n);
@@ -28,11 +29,11 @@ public class skewCollatz {
     }
 
     public static void main(String[] args) {
-        Map<Integer, Integer> dict = new HashMap();
+        Map<BigInteger, Integer> dict = new HashMap();
         skewCollatz ins = new skewCollatz();
 
-        for (int i = 1; i <= 100000; i++) {
-            ins.genSeq(i);
+        for (int i = 1; i <= 150000; i++) {
+            ins.genSeq(BigInteger.valueOf(i));
             var minned = Collections.min(ins.set);
             ins.clearSet();
 
