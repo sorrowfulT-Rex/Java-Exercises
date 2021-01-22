@@ -103,7 +103,46 @@ class GameEngine {
 					break;
 				}
 			} else {
-        System.out.println(first.getName() + "draws with " + second.getName());
+        System.out.println(first.getName() + " draws with " + second.getName());
+				System.out.println("------------------------------");
+			}
+		}
+	}
+
+	public void simulateLuckyBattle(LuckyFighter first, LuckyFighter second) {
+		System.out.println("At start of battle, stats are:");
+		System.out.println(first);
+		System.out.println(second);
+		System.out.println("------------------------------");
+
+		while (true) {
+			var scoreF = first.calculateAttackScore();
+			var scoreS = second.calculateAttackScore();
+
+			if (scoreF > scoreS) {
+				second.takeDamage(first.calculateDamage());
+				System.out.println(first.getName() + " hits " + second.getName() + ", stats are:");
+				System.out.println(first);
+				System.out.println(second);
+				System.out.println("------------------------------");
+
+				if (second.isDead()) {
+					System.out.println("End of battle, " + first + " wins!");
+					break;
+				}
+			} else if (scoreS > scoreF) {
+				first.takeDamage(second.calculateDamage());
+				System.out.println(second.getName() + " hits " + first.getName() + ", stats are:");
+				System.out.println(first);
+				System.out.println(second);
+				System.out.println("------------------------------");
+
+				if (first.isDead()) {
+					System.out.println("End of battle, " + second + " wins!");
+					break;
+				}
+			} else {
+				System.out.println(first.getName() + " draws with " + second.getName());
 				System.out.println("------------------------------");
 			}
 		}
