@@ -1,4 +1,4 @@
-// e6fd: Bit sets
+package tutorialquestion;// e6fd: Bit sets
 /*
  * An n-bit binary number can be used to represent a set of integers in the range [0,n-1].
  * This can be achieved by setting bit i of the number to 1 if and only if i belongs to the set.

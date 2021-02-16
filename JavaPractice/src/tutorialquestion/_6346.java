@@ -1,4 +1,4 @@
-// 6346: Depth of arithmetic expressions
+package tutorialquestion;// 6346: Depth of arithmetic expressions
 /*
  * Description: https://github.com/afd/ProgrammingIITutorialQuestions/blob/master/questions/6346.md
  */

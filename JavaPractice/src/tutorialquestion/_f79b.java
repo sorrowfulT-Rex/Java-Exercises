@@ -1,4 +1,4 @@
-// f79b: Perfect palindromic cubes
+package tutorialquestion;// f79b: Perfect palindromic cubes
 /*
     A number x is a perfect palindromic cube if it is a perfect cube (i.e., x=y^3 for some integer y),
     and it is a palindrome when written in decimal (i.e., it appears the same backwards).

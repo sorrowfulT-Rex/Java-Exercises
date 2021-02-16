@@ -1,4 +1,4 @@
-// 014e: Random numbers
+package tutorialquestion;// 014e: Random numbers
 /*
     Write a program that takes a positive integer command-line argument x and continuously generates random integers
     between 0 and x-1 (inclusive) until each integer in this range has been generated at least once.

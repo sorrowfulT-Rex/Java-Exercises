@@ -1,4 +1,4 @@
-// 0378: Comparing people
+package tutorialquestion;// 0378: Comparing people
 
 /* Full description:
  * https://github.com/afd/ProgrammingIITutorialQuestions/blob/master/questions/0378.md

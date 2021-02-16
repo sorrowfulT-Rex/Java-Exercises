@@ -1,11 +1,11 @@
-// bec2: Music collection
+package tutorialquestion;// bec2: Music collection
 /*
-	Write a class, Record, to represent records that have been released by music artists.
-	An instance of Record should consist of a title (a string) and a genre, which should be one of rock,
-	pop or jazz. You should use an enumerated type, Genre, to represent these.
+	Write a class, tutorialquestion.Record, to represent records that have been released by music artists.
+	An instance of tutorialquestion.Record should consist of a title (a string) and a genre, which should be one of rock,
+	pop or jazz. You should use an enumerated type, tutorialquestion.Genre, to represent these.
 
-	Write another class, Artist, representing a music artist. An instance of Artist should consist of
-	a name (a string), a catalogue (a list of Records) and a main genre (a Genre).
+	Write another class, tutorialquestion.Artist, representing a music artist. An instance of tutorialquestion.Artist should consist of
+	a name (a string), a catalogue (a list of Records) and a main genre (a tutorialquestion.Genre).
 	The latter is the genre of music that this artist tends to record.
  */
 

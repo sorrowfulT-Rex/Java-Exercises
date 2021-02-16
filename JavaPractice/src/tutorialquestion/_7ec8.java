@@ -1,4 +1,4 @@
-// 7ec8: Battling fighters
+package tutorialquestion;// 7ec8: Battling fighters
 
 // In this question you will simulate a battle between fighters using rules based on the
 // Fighting Fantasy adventure game books.
