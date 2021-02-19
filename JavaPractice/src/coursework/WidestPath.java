@@ -50,9 +50,9 @@ public class WidestPath {
     }
 
     // Algorithm
-    for (int i = 0; i < graph.getSize(); i++) {
-      for (int j = 0; j < graph.getSize(); j++) {
-        for (int k = 0; k < graph.getSize(); k++) {
+    for (int k = 0; k < graph.getSize(); k++) {
+      for (int i = 0; i < graph.getSize(); i++) {
+        for (int j = 0; j < graph.getSize(); j++) {
           res[i][j] = Math.max(res[i][j], Math.min(res[i][k], res[k][j]));
         }
       }
