@@ -62,6 +62,10 @@ public class HamiltonCircuit {
       // subsetIndex is updated correspondingly with nextSet. For example, when the set becomes
       // {true, false, false, true} or {0, 3}, subsetIndex = 2^0 + 2^3 = 9.
       for (int i = 0; i < size; i++) {
+        if (set[i]) {
+          continue;
+        }
+
         Pair key = new Pair(subsetIndex, i);
         h.put(key, false);
         for (int j = 0; j < size; j++) {
