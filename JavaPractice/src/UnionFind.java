@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class UnionFind<S> {
 
@@ -25,7 +22,7 @@ public class UnionFind<S> {
     }
 
     for (var node : nodes) {
-      calDepth(node);
+      calDepth(node, 0);
     }
   }
 
@@ -33,12 +30,13 @@ public class UnionFind<S> {
 
     UnionFind<Integer> intUF =
         new UnionFind<>(new ArrayList<>(List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)));
-    intUF.union(2, 3);
-    intUF.union(3, 5);
-    intUF.union(4, 1);
-    intUF.union(9, 8);
-    intUF.union(1, 1);
+    intUF.union(2, 1);
+    intUF.union(4, 3);
+    intUF.union(2, 4);
+    intUF.union(3, 1);
+    intUF.union(7, 9);
     System.out.println(intUF);
+    System.out.println(intUF.getReps());
   }
 
   public S find(S node) {
@@ -53,32 +51,38 @@ public class UnionFind<S> {
   }
 
   public void union(S node1, S node2) {
-    if (find(node1).equals(find(node2))) {
+    var rep1 = find(node1);
+    var rep2 = find(node2);
+    if (rep1.equals(rep2)) {
       return;
     }
 
-    if (depth.get(node1) < depth.get(node2)) {
-      union(node2, node1);
+    if (depth.get(rep1) < depth.get(rep2)) {
+      union(rep2, rep1);
       return;
     }
-
+    depth.put(rep1, Math.max(depth.get(rep1), depth.get(rep2) + 1));
+    depth.remove(rep2);
     parents.put(node2, node1);
+  }
+
+  public Set<S> getReps() {
+    return depth.keySet();
   }
 
   private S parent(S node) {
     return parents.get(node);
   }
 
-  private int calDepth(S node) {
-    if (depth.containsKey(node)) {
-      return depth.get(node);
-    }
+  private void calDepth(S node, int acc) {
     if (node.equals(parent(node))) {
-      depth.put(node, 0);
-      return 0;
+      if (depth.getOrDefault(node, 0) <= acc) {
+        depth.put(node, acc);
+      }
+      return;
     }
-    depth.put(node, 1 + calDepth(parent(node)));
-    return depth.get(node);
+
+    calDepth(parent(node), acc + 1);
   }
 
   @Override
